@@ -7,15 +7,26 @@ public class Mover : MonoBehaviour
     [SerializeField] float MoveSpeed = 3f;
     void Start()
     {
-        
+        PrintInstruction();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        MovePlayer();
+    }
+
+    void PrintInstruction()
+    {
+        Debug.Log("Move With WASD");
+    }
+
+    void MovePlayer()
     {
         float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * MoveSpeed;
         float zValue = Input.GetAxis("Vertical") * Time.deltaTime * MoveSpeed;
         float yValue = 0f;
         transform.Translate(xValue, yValue, zValue);
     }
+
 }
